@@ -1,10 +1,15 @@
 module.exports = {
   index,
   show,
-  new: newExpense
+  new: newExpense,
+  create
 };
 
 const Expense = require('../models/expense');
+
+function create(req, res) {
+  res.redirect('/expenses');
+}
 
 function newExpense(req, res) {
   res.render('expenses/new', {

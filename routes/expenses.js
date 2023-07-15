@@ -9,4 +9,6 @@ router.get('/:id', expensesCtrl.show);
 
 router.get('/new', expensesCtrl.new);
 
+router.post('/', expensesCtrl.create);
+
 module.exports = router;

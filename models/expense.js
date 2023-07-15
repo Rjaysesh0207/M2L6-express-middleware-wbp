@@ -1,6 +1,7 @@
 module.exports = {
   getAll,
   getOne,
+  create
 };
 
 const expenses = [
@@ -23,6 +24,11 @@ const expenses = [
     amount: '103.55'
   }
 ];
+
+function create(expense) {
+  expense.id = Date.now() %1000000;
+  expenses.push(expense);
+}  
 
 function getAll() {
   return expenses;
