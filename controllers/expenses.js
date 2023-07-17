@@ -2,12 +2,19 @@ module.exports = {
   index,
   show,
   new: newExpense,
-  create
+  create,
+  delete: deleteExpense
 };
 
 const Expense = require('../models/expense');
 
+function deleteExpense(req, res) {
+  Expense.deleteOne(req.params.id);
+  res.redirect('/expenses');
+}
+
 function create(req, res) {
+  Expense.create(req.body);
   res.redirect('/expenses');
 }
 
@@ -15,6 +22,7 @@ function newExpense(req, res) {
   res.render('expenses/new', {
     title: 'New Expense'
   });
+
 }
 
 function index(req, res) {

@@ -1,7 +1,8 @@
 module.exports = {
   getAll,
   getOne,
-  create
+  create,
+  deleteOne
 };
 
 const expenses = [
@@ -24,6 +25,12 @@ const expenses = [
     amount: '103.55'
   }
 ];
+
+function deleteOne(id) {
+  id = parseInt(id);
+  const index = expenses.findIndex(expense => expense.id === id);
+  expenses.splice(index, 1);
+}
 
 function create(expense) {
   expense.id = Date.now() %1000000;
